@@ -9,7 +9,7 @@ export default class FaseGrupo extends BaseModel {
   public nome: string
 
   @column()
-  public IdSelecao: number
+  public selecaoId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

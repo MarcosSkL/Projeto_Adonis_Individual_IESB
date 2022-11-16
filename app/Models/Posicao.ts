@@ -8,8 +8,6 @@ export default class Posicao extends BaseModel {
   @column()
   public nome: string
 
-  @column()
-  public IdJogador: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
