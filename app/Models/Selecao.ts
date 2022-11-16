@@ -11,6 +11,12 @@ export default class Selecao extends BaseModel {
   @column()
   public continente: string
 
+  @column()
+  public tecnicoId: number
+
+  @column()
+  public faseGrupoId: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

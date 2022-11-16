@@ -12,13 +12,16 @@ export default class Jogador extends BaseModel {
   public camisa: number
 
   @column()
-  public idade: string
+  public idade: number
 
   @column()
   public nacionalidade: string
 
   @column()
-  public IdSelecao: string
+  public selecaoId: number
+
+  @column()
+  public posicaoId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

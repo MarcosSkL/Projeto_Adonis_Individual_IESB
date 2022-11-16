@@ -10,7 +10,8 @@ export default class extends BaseSchema {
       table.integer('camisa', 2).notNullable()
       table.integer('idade', 2).notNullable()
       table.string('nacionalidade', 50).notNullable()
-      table.integer('Id_Selecao', 3).notNullable()
+      table.integer('selecao_id').unsigned().references('id').inTable('selecao')
+      table.integer('posicao_id').unsigned().references('id').inTable('posicao')
 
 
       /**

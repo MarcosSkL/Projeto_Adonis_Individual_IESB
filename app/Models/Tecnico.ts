@@ -15,7 +15,7 @@ export default class Tecnico extends BaseModel {
   public nacionalidade: string
 
   @column()
-  public IdSelecao: number
+  public selecaoId: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

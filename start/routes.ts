@@ -23,3 +23,14 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+
+Route.resource('/fase_grupo', 'FaseGruposController').apiOnly()
+
+Route.resource('/jogador', 'JogadoresController').apiOnly()
+
+Route.resource('/posicao', 'PosicoesController').apiOnly()
+
+Route.resource('/selecao', 'SelecoesController').apiOnly()
+
+Route.resource('/tecnico', 'TecnicosController').apiOnly()
