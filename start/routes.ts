@@ -24,13 +24,22 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
+Route.post('/users', 'UsersController.store')//.middleware('auth')
 
-Route.resource('/fase_grupo', 'FaseGruposController').apiOnly()
+Route.post('/login', 'UsersController.login')
 
-Route.resource('/jogador', 'JogadoresController').apiOnly()
+Route.group(() => {
 
-Route.resource('/posicao', 'PosicoesController').apiOnly()
+Route.resource('/fasegrupos', 'FaseGruposController').apiOnly()
 
-Route.resource('/selecao', 'SelecoesController').apiOnly()
+Route.resource('/jogadores', 'JogadoresController').apiOnly()
 
-Route.resource('/tecnico', 'TecnicosController').apiOnly()
+Route.resource('/posicaojogadores', 'PosicaoJogadoresController').apiOnly()
+
+Route.resource('/posicionamentos', 'PosicionamentosController').apiOnly()
+
+Route.resource('/tecnicos', 'TecnicosController').apiOnly()
+
+Route.resource('/times', 'TimesController').apiOnly()
+
+}).middleware('auth')
