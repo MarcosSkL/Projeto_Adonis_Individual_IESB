@@ -4,7 +4,7 @@ import Selecao from 'App/Models/Selecao'
 export default class extends BaseSeeder {
   public async run () {
     await Selecao.createMany([
-      {nome: "Catar", tecnicoId: 1, faseGrupoId: 1 },
+      {nome: "Catar", continente: "", tecnicoId: 1, faseGrupoId: 1 },
       {nome: "Equador", tecnicoId: 2, faseGrupoId: 1 },
       {nome: "Senegal", tecnicoId: 3, faseGrupoId: 1 },
       {nome: "Holanda", tecnicoId: 4, faseGrupoId: 1 },
