@@ -1,4 +1,4 @@
-# Acadêmico
+# Projeto Individual - Tabelas COPA CATAR 2022
 
 ### Iniciar um projeto.
 
