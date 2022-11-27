@@ -344,6 +344,6 @@ Route.group(() => {
   Route.resource('/turma_aluno', 'TurmaAlunosController').apiOnly()
   Route.resource('/aula', 'AulasController').apiOnly()
   Route.resource('/chamada', 'ChamadasController').apiOnly()
-}).middleware('auth')
+}).middleware('auth') 
 ```
 
