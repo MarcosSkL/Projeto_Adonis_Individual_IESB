@@ -1,50 +1,37 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-import jogador from "App/Models/Jogador"
+import Jogador from "App/Models/Jogador"
+import JogadorUpdateValidator from "App/Validators/JogadorUpdateValidator"
+import JogadorValidator from "App/Validators/JogadorValidator"
 
 
 export default class JogadorsController {
-  index (){
-    return jogador.query().paginate(1)
+  async index (){
+    return await Jogador.query().preload("selecaos")
   }
-  store ({request}){
-    const dados = request.only([
-      'nome',
-      'camisa',
-      'data_nascimento',
-      'nacionalidade',
-      'altura',
-      'posicaos_id',
-      'selecaos_id'
-    ])
-    return jogador.createMany(dados)
+  async store ({request}){
+    const dados = await request.validate(JogadorValidator)
+    return Jogador.createMany(dados)
   }
 
   show( {request} ) {
     const id = request.param('id')
-    return jogador.findOrFail(id)
+    return Jogador.findOrFail(id)
   }
 
   async destroy( {request} ) {
     const id = request.param('id')
-    const jogadores = await jogador.findOrFail(id)
-    return jogadores.delete()
+    const jogadores = await Jogador.findOrFail(id)
+    jogadores.delete()
+    return "Usuário Deletado com Sucesso"
   }
 
   async update( {request} ) {
     const id = request.param('id')
-    const jogadores = await jogador.findOrFail(id)
-    const dados = request.only([
-      'nome',
-      'camisa',
-      'data_nascimento',
-      'nacionalidade',
-      'altura',
-      'posicaos_id',
-      'selecaos_id'
-    ])
-    jogadores.merge(dados)
-    return jogadores.save()
+    const jogadores = await Jogador.findOrFail(id)
+    const dados = request.validate(JogadorUpdateValidator)
+    jogadores.merge(dados).save()
+    return jogadores
 
   }
 }

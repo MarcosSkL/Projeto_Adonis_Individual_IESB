@@ -21,7 +21,8 @@ export default class PosicaosController {
   async destroy( {request} ) {
     const id = request.param('id')
     const posicaos = await Posicao.findOrFail(id)
-    return posicaos.delete()
+    posicaos.delete()
+    return "Usuário Deletado com Sucesso"
   }
 
   async update( {request} ) {
