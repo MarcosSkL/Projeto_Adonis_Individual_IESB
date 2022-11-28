@@ -4,7 +4,7 @@ import Selecao from "App/Models/Selecao"
 
 export default class SelecaosController {
   index (){
-    return Selecao.query().paginate(1)
+    return Selecao.query().preload("faseGrupos").preload("jogadors").preload('tecnicos')
   }
   store ({request}){
     const dados = request.only([
@@ -24,7 +24,8 @@ export default class SelecaosController {
   async destroy( {request} ) {
     const id = request.param('id')
     const selecaos = await Selecao.findOrFail(id)
-    return selecaos.delete()
+    selecaos.delete()
+    return "Usuário Deletado com Sucesso"
   }
 
   async update( {request} ) {
