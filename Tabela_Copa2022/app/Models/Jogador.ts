@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column, HasMany, hasMany, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Posicao from './Posicao'
 import Selecao from './Selecao'
 
@@ -23,7 +23,7 @@ export default class jogador extends BaseModel {
   public altura: string
 
   @column()
-  public posicaoId: number
+  public posicaosId: number
 
   @column()
   public selecaosId: number
@@ -35,8 +35,8 @@ export default class jogador extends BaseModel {
   public updatedAt: DateTime
 
  @hasMany(() => Posicao)
- public posicao: HasMany<typeof Posicao>
+ public posicaos: HasMany<typeof Posicao>
 
  @belongsTo(() => Selecao)
- public selecao: BelongsTo<typeof Selecao>
+ public selecaos: BelongsTo<typeof Selecao>
 }

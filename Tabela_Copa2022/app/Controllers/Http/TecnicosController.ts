@@ -24,7 +24,8 @@ export default class TecnicosController {
   async destroy( {request} ) {
     const id = request.param('id')
     const tecnicos = await Tecnico.findOrFail(id)
-    return tecnicos.delete()
+    tecnicos.delete()
+    return "Usuário Deletado com Sucesso"
   }
 
   async update( {request} ) {
