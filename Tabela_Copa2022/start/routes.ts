@@ -24,13 +24,3 @@ Route.get('/', async () => {
   return { servidor: 'ONLINE' }
 })
 
-Route.group(() => { Route.resource('/user', 'UsersController') }).middleware('auth')
-Route.post("/login", "UsersController.login")
-
-Route.group(() => {
-  Route.resource("/fasegrupos", "FaseGruposController").apiOnly();
-  Route.resource("/jogadores", "JogadorsController").apiOnly();
-  Route.resource("/posicoes", "PosicaosController").apiOnly();
-  Route.resource("/selecoes", "SelecaosController").apiOnly();
-  Route.resource("/tecnicos", "TecnicosController").apiOnly();
-}).middleware("auth");
